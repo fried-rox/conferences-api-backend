@@ -44,11 +44,11 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  get:
+  getConference:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /notes/{id}
     # - method: GET request
-    handler: get.main
+    handler: getConference.main
     events:
       - http:
           path: conferences/{id}
