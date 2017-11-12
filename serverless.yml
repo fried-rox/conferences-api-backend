@@ -35,8 +35,8 @@ functions:
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
-  create:
-    handler: create.main
+  createConference:
+    handler: createConference.main
     events:
       - http:
           path: conferences
@@ -56,11 +56,11 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  list:
+  listConferences:
     # Defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
     # - method: GET request
-    handler: list.main
+    handler: listConferences.main
     events:
       - http:
           path: conferences
@@ -68,11 +68,11 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  update:
+  updateConference:
     # Defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is /notes/{id}
     # - method: PUT request
-    handler: update.main
+    handler: updateConference.main
     events:
       - http:
           path: conferences/{id}
@@ -81,14 +81,71 @@ functions:
           authorizer: aws_iam
 
 
-  delete:
+  deleteConference:
     # Defines an HTTP API endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
     # - method: DELETE request
-    handler: delete.main
+    handler: deleteConference.main
     events:
       - http:
           path: conferences/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+#--------------------------------------------------------------------------------------
+  createParticipant:
+    handler: createParticipant.main
+    events:
+      - http:
+          path: participants
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  getParticipant:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: getParticipant.main
+    events:
+      - http:
+          path: participants/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  listParticipants:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: listParticipants.main
+    events:
+      - http:
+          path: participants
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  updateParticipant:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /notes/{id}
+    # - method: PUT request
+    handler: updateParticipant.main
+    events:
+      - http:
+          path: participants/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteParticipant:
+    # Defines an HTTP API endpoint that calls the main function in delete.js
+    # - path: url path is /notes/{id}
+    # - method: DELETE request
+    handler: deleteParticipant.main
+    events:
+      - http:
+          path: participants/{id}
           method: delete
           cors: true
           authorizer: aws_iam
