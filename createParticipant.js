@@ -1,4 +1,4 @@
-// import uuid from "uuid";
+import uuid from "uuid";
 
 import * as dynamoDbLib from "./libs/dynamodb-lib";
 import { success, failure } from "./libs/response-lib";
@@ -6,7 +6,7 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: "c-participants",
+    TableName: "c--participants",
     // 'Item' contains the attributes of the item to be created
     // - 'userId': user identities are federated through the
     //             Cognito Identity Pool, we will use the identity id
@@ -16,8 +16,7 @@ export async function main(event, context, callback) {
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
     Item: {
-      participantId: event.requestContext.identity.cognitoIdentityId,
-      //conferenceId: uuid.v1(),
+      participantId: uuid.v1(),
       parTitle: data.parTitle,
       parFirstName: data.parFIrstName,
       parMiddleName: data.parMiddleName,
@@ -26,22 +25,18 @@ export async function main(event, context, callback) {
       parGender: data.parGender,
       parWork: data.parWork,
       parWorkDepartment: data.parWorkDepartment,
-      parWorkAddress: {
-        workStreet: data.workStreet,
-        workCity: data.workCity,
-        workState: data.workState,
-        workCountry: data.workCountry,
-        workZIP: data.workZIP
-      },
+      parWorkStreet: data.parWorkStreet,
+      parWorkCity: data.parWorkCity,
+      parWorkState: data.parWorkState,
+      parWorkCountry: data.parWorkCountry,
+      parWorkZIP: data.parWorkZIP,
       workPhoneCode: data.workPhoneCode,
       workPhoneNumber: data.workPhoneNumber,
-      parPersonalAddress: {
-        personalStreet: data.personalStreet,
-        personalCity: data.personalCity,
-        personalState: data.personalState,
-        personalCountry: data.personalCountry,
-        personalZIP: data.personalZIP
-      },
+      parPersonalStreet: data.parPersonalStreet,
+      parPersonalCity: data.parPersonalCity,
+      parPersonalState: data.parPersonalState,
+      parPersonalCountry: data.parPersonalCountry,
+      parPersonalZIP: data.parPersonalZIP,
       mobilePhoneCode: data.mobilePhoneCode,
       mobilePhoneNumber: data.mobilePhoneNumber,
       parNotes: data.parNotes,

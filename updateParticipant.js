@@ -4,16 +4,16 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: "c-participants",
+    TableName: "c--participants",
     // 'Key' defines the partition key and sort key of the item to be updated
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'noteId': path parameter
     Key: {
-      participantId: event.requestContext.identity.cognitoIdentityId,
+      participantId: event.pathParameters.id,
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET parTitle = :parTitle, parFirstName = :parFirstName, parMiddleName = :parMiddleName, parLastName = :parLastName, parSuffix = :parSuffix, parGender = :parGender, parWork = :parWork, parWorkDepartment = :parWorkDepartment, workStreet  = :workStreet, workCity  = :workCity, workState  = :workState, workCountry  = :workCountry, workZIP  = :workZIP, workPhoneCode = :workPhoneCode, workPhoneNumber = :workPhoneNumber, personalStreet  = :personalStreet, personalCity  = :personalCity, personalState  = :personalState, personalCountry  = :personalCountry, personalZIP  = :personalZIP, mobilePhoneCode= :mobilePhoneCode, mobilePhoneNumber= :mobilePhoneNumber, parNotes= :parNotes",
+    UpdateExpression: "SET parTitle = :parTitle, parFirstName = :parFirstName, parMiddleName = :parMiddleName, parLastName = :parLastName, parSuffix = :parSuffix, parGender = :parGender, parWork = :parWork, parWorkDepartment = :parWorkDepartment, parWorkStreet = :parWorkStreet, parWorkCity = :parWorkCity, parWorkState = :parWorkState, parWorkCountry = :parWorkCountry, parWorkZIP = :parWorkZIP, workPhoneCode = :workPhoneCode, workPhoneNumber = :workPhoneNumber, parPersonalStreet = :parPersonalStreet, parPersonalCity = :parPersonalCity, parPersonalState = :parPersonalState, parPersonalCountry = :parPersonalCountry, parPersonalZIP = :parPersonalZIP, mobilePhoneCode = :mobilePhoneCode, mobilePhoneNumber = :mobilePhoneNumber, parNotes = :parNotes",
     ExpressionAttributeValues: {
       ":parTitle": data.parTitle ? data.parTitle : null,
       ":parFirstName": data.parFirstName ? data.parFirstName : null,
@@ -23,22 +23,18 @@ export async function main(event, context, callback) {
       ":parGender": data.parGender ? data.parGender : null,
       ":parWork": data.parWork ? data.parWork : null,
       ":parWorkDepartment": data.parWorkDepartment ? data.parWorkDepartment : null,
-      ":parWorkAddress": {
-        ":workStreet": data.workStreet ? data.workStreet : null,
-        ":workCity": data.workCity ? data.workCity : null,
-        ":workState": data.workState ? data.workState : null,
-        ":workCountry": data.workCountry ? data.workCountry : null,
-        ":workZIP": data.workZIP ?  data.workZIP : null
-      },
+      ":parWorkStreet": data.parWorkStreet ? data.parWorkStreet : null,
+      ":parWorkCity": data.parWorkCity ? data.parWorkCity : null,
+      ":parWorkState": data.parWorkState ? data.parWorkState : null,
+      ":parWorkCountry": data.parWorkCountry ? data.parWorkCountry : null,
+      ":parWorkZIP": data.parWorkZIP ?  data.parWorkZIP : null,
       ":workPhoneCode": data.workPhoneCode ? data.workPhoneCode : null,
       ":workPhoneNumber": data.workPhoneNumber ? data.workPhoneNumber : null,
-      ":parPersonalAddress": {
-        ":personalStreet": data.personalStreet ? data.personalStreet : null,
-        ":personalCity": data.personalCity ? data.personalCity : null,
-        ":personalState": data.personalState ? data.personalState : null,
-        ":personalCountry": data.personalCountry ? data.personalCountry : null,
-        ":personalZIP": data.personalZIP ?  data.personalZIP : null
-      },
+      ":parPersonalStreet": data.parPersonalStreet ? data.parPersonalStreet : null,
+      ":parPersonalCity": data.parPersonalCity ? data.parPersonalCity : null,
+      ":parPersonalState": data.parPersonalState ? data.parPersonalState : null,
+      ":parPersonalCountry": data.parPersonalCountry ? data.parPersonalCountry : null,
+      ":parPersonalZIP": data.parPersonalZIP ?  data.parPersonalZIP : null,
       ":mobilePhoneCode": data.mobilePhoneCode ? data.mobilePhoneCode : null,
       ":mobilePhoneNumber": data.mobilePhoneNumber ? data.mobilePhoneNumber : null,
       ":parNotes": data.parNotes ? data.parNotes : null
