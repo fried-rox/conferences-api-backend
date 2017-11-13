@@ -10,14 +10,14 @@ export async function main(event, context, callback) {
     // 'ExpressionAttributeValues' defines the value in the condition
     // - ':userId': defines 'userId' to be Identity Pool identity id
     //   of the authenticated user
-    KeyConditionExpression: "participantId = :participantId",
-    ExpressionAttributeValues: {
-      ":participantId": event.pathParameters.id
-    }
+    // KeyConditionExpression: "participantId = :participantId",
+    // ExpressionAttributeValues: {
+    //   ":participantId": event.pathParameters.id
+    // }
   };
 
   try {
-    const result = await dynamoDbLib.call("query", params);
+    const result = await dynamoDbLib.call("scan", params);
     // Return the matching list of items in response body
     callback(null, success(result.Items));
   } catch (e) {
