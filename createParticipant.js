@@ -16,9 +16,10 @@ export async function main(event, context, callback) {
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
     Item: {
-      participantId: uuid.v1(),
+      // participantId: uuid.v1(),
+      participantId: data.participantId,
       parTitle: data.parTitle,
-      parFirstName: data.parFIrstName,
+      parFirstName: data.parFirstName,
       parMiddleName: data.parMiddleName,
       parLastName: data.parLastName,
       parSuffix: data.parSuffix,
