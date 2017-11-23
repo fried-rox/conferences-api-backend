@@ -1,4 +1,4 @@
-import uuid from "uuid";
+// import uuid from "uuid";
 
 import * as dynamoDbLib from "./libs/dynamodb-lib";
 import { success, failure } from "./libs/response-lib";
@@ -6,7 +6,7 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: "c--participants",
+    TableName: "c_participants",
     // 'Item' contains the attributes of the item to be created
     // - 'userId': user identities are federated through the
     //             Cognito Identity Pool, we will use the identity id
@@ -16,13 +16,13 @@ export async function main(event, context, callback) {
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
     Item: {
+      parProfileId: event.requestContext.identity.cognitoIdentityId,
       // participantId: uuid.v1(),
       participantId: data.participantId,
       parTitle: data.parTitle,
       parFirstName: data.parFirstName,
       parMiddleName: data.parMiddleName,
       parLastName: data.parLastName,
-      parSuffix: data.parSuffix,
       parGender: data.parGender,
       parWork: data.parWork,
       parWorkDepartment: data.parWorkDepartment,
@@ -38,7 +38,6 @@ export async function main(event, context, callback) {
       parPersonalState: data.parPersonalState,
       parPersonalCountry: data.parPersonalCountry,
       parPersonalZIP: data.parPersonalZIP,
-      mobilePhoneCode: data.mobilePhoneCode,
       mobilePhoneNumber: data.mobilePhoneNumber,
       parNotes: data.parNotes,
       createdAt: new Date().getTime()

@@ -9,17 +9,17 @@ export async function main(event, context, callback) {
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'noteId': path parameter
     Key: {
-      participantId: event.pathParameters.id,
+      parProfileId: event.requestContext.identity.cognitoIdentityId,
+      participantId: event.pathParameters.id
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET parTitle = :parTitle, parFirstName = :parFirstName, parMiddleName = :parMiddleName, parLastName = :parLastName, parSuffix = :parSuffix, parGender = :parGender, parWork = :parWork, parWorkDepartment = :parWorkDepartment, parWorkStreet = :parWorkStreet, parWorkCity = :parWorkCity, parWorkState = :parWorkState, parWorkCountry = :parWorkCountry, parWorkZIP = :parWorkZIP, workPhoneCode = :workPhoneCode, workPhoneNumber = :workPhoneNumber, parPersonalStreet = :parPersonalStreet, parPersonalCity = :parPersonalCity, parPersonalState = :parPersonalState, parPersonalCountry = :parPersonalCountry, parPersonalZIP = :parPersonalZIP, mobilePhoneCode = :mobilePhoneCode, mobilePhoneNumber = :mobilePhoneNumber, parNotes = :parNotes",
+    UpdateExpression: "SET parTitle = :parTitle, parFirstName = :parFirstName, parMiddleName = :parMiddleName, parLastName = :parLastName, parGender = :parGender, parWork = :parWork, parWorkDepartment = :parWorkDepartment, parWorkStreet = :parWorkStreet, parWorkCity = :parWorkCity, parWorkState = :parWorkState, parWorkCountry = :parWorkCountry, parWorkZIP = :parWorkZIP, workPhoneCode = :workPhoneCode, workPhoneNumber = :workPhoneNumber, parPersonalStreet = :parPersonalStreet, parPersonalCity = :parPersonalCity, parPersonalState = :parPersonalState, parPersonalCountry = :parPersonalCountry, parPersonalZIP = :parPersonalZIP, mobilePhoneNumber = :mobilePhoneNumber, parNotes = :parNotes",
     ExpressionAttributeValues: {
       ":parTitle": data.parTitle ? data.parTitle : null,
       ":parFirstName": data.parFirstName ? data.parFirstName : null,
       ":parMiddleName": data.parMiddleName ? data.parMiddleName : null,
       ":parLastName": data.parLastName ? data.parLastName : null,
-      ":parSuffix": data.parSuffix ? data.parSuffix : null,
       ":parGender": data.parGender ? data.parGender : null,
       ":parWork": data.parWork ? data.parWork : null,
       ":parWorkDepartment": data.parWorkDepartment ? data.parWorkDepartment : null,
@@ -35,7 +35,6 @@ export async function main(event, context, callback) {
       ":parPersonalState": data.parPersonalState ? data.parPersonalState : null,
       ":parPersonalCountry": data.parPersonalCountry ? data.parPersonalCountry : null,
       ":parPersonalZIP": data.parPersonalZIP ?  data.parPersonalZIP : null,
-      ":mobilePhoneCode": data.mobilePhoneCode ? data.mobilePhoneCode : null,
       ":mobilePhoneNumber": data.mobilePhoneNumber ? data.mobilePhoneNumber : null,
       ":parNotes": data.parNotes ? data.parNotes : null
     },
