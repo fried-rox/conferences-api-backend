@@ -102,9 +102,6 @@ functions:
           authorizer: aws_iam
 
   getParticipant:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
     handler: getParticipant.main
     events:
       - http:
@@ -114,9 +111,6 @@ functions:
           authorizer: aws_iam
 
   listParticipants:
-    # Defines an HTTP API endpoint that calls the main function in list.js
-    # - path: url path is /notes
-    # - method: GET request
     handler: listParticipants.main
     events:
       - http:
@@ -126,9 +120,6 @@ functions:
           authorizer: aws_iam
 
   updateParticipant:
-    # Defines an HTTP API endpoint that calls the main function in update.js
-    # - path: url path is /notes/{id}
-    # - method: PUT request
     handler: updateParticipant.main
     events:
       - http:
@@ -138,13 +129,55 @@ functions:
           authorizer: aws_iam
 
   deleteParticipant:
-    # Defines an HTTP API endpoint that calls the main function in delete.js
-    # - path: url path is /notes/{id}
-    # - method: DELETE request
     handler: deleteParticipant.main
     events:
       - http:
           path: participants/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+#--------------------------------------------------------------------------------------
+  createRegCategory:
+    handler: createRegCategory.main
+    events:
+      - http:
+          path: regcategories
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  getRegCategory:
+    handler: getRegCategory.main
+    events:
+      - http:
+          path: regcategories/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  listRegCategories:
+    handler: listRegCategories.main
+    events:
+      - http:
+          path: regcategories
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  updateRegCategory:
+    handler: updateRegCategory.main
+    events:
+      - http:
+          path: regcategories/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteRegCategory:
+    handler: deleteRegCategory.main
+    events:
+      - http:
+          path: regcategories/{id}
           method: delete
           cors: true
           authorizer: aws_iam
