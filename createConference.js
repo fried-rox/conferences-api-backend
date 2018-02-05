@@ -34,7 +34,9 @@ export async function main(event, context, callback) {
       confCurrency: data.confCurrency,
       confExRate: data.confExRate,
       notes: data.notes,
-      createdAt: new Date().getTime()
+      createdAt: new Date().getTime(),
+      regCategories: data.regCategories,
+      participantList: data.participantList
     }
   };
 

@@ -15,7 +15,7 @@ export async function main(event, context, callback) {
     // - 'createdAt': current Unix timestamp
     Item: {
       parProfileId: event.requestContext.identity.cognitoIdentityId,
-      // participantId: uuid.v1(),
+      conferenceId: data.conferenceId,
       participantId: data.participantId,
       parTitle: data.parTitle,
       parFirstName: data.parFirstName,
