@@ -17,7 +17,6 @@ export async function main(event, context, callback) {
       parProfileId: event.requestContext.identity.cognitoIdentityId,
       conferenceId: data.conferenceId,
       participantId: data.participantId,
-      parEmail: data.parEmail,
       parTitle: data.parTitle,
       parFirstName: data.parFirstName,
       parMiddleName: data.parMiddleName,
