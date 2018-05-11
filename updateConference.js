@@ -4,13 +4,12 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: "t-conferences",
+    TableName: "t_conferences",
     // 'Key' defines the partition key and sort key of the item to be updated
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'noteId': path parameter
     Key: {
-      confListId: event.requestContext.identity.cognitoIdentityId,
-      conferenceId: event.pathParameters.id,
+      conferenceId: event.pathParameters.id
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression

@@ -29,7 +29,7 @@ provider:
       Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
-  # Defines an HTTP API endpoint that calls the main function in create.js
+  # Defines an HTTP API endpoint that calls the main function
   # - path: url path is /notes
   # - method: POST request
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
