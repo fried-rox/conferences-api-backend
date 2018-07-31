@@ -30,9 +30,7 @@ export async function main(event, context, callback) {
       ":confLanguage": data.confLanguage ? data.confLanguage : null,
       ":confCurrency": data.confCurrency ? data.confCurrency : null,
       ":confExRate": data.confExRate ? data.confExRate : null,
-      ":notes": data.notes ? data.notes : null,
-      ":regCategories": data.regCategories ? data.regCategories : null,
-      ":participantList": data.participantList ? data.participantList : null
+      ":notes": data.notes ? data.notes : null
     },
     ReturnValues: "ALL_NEW"
   };
