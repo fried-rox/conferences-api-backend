@@ -181,3 +181,12 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+#--------------------------------------------------------------------------------------
+  createRegContext:
+    handler: createRegContext.main
+    events:
+      - http:
+          path: regcontexts
+          method: post
+          cors: true
+          authorizer: aws_iam
