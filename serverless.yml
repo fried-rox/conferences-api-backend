@@ -190,3 +190,39 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+
+  getRegContext:
+    handler: getRegContext.main
+    events:
+      - http:
+          path: regcontexts/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  listRegContexts:
+    handler: listRegContexts.main
+    events:
+      - http:
+          path: regcontexts
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  updateRegContext:
+    handler: updateRegContext.main
+    events:
+      - http:
+          path: regcontexts/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteRegContext:
+    handler: deleteRegContext.main
+    events:
+      - http:
+          path: regcontexts/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
