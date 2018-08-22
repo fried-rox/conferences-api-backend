@@ -10,21 +10,10 @@ export async function main(event, context, callback) {
     Item: {
       regCategoryId: uuid.v1(),
       conferenceId: data.conferenceId, //might need to change this label
-      regFullName: data.regFullName,
-      regAbbrName: data.regAbbrName,
-      regCurrency: data.regCurrency,
-      regLanguage: data.regLanguage,
-      addScience: data.addScience,
-      addTours: data.addTours,
-      addHotel: data.addHotel,
-      addAP: data.addAP,
-      regFee: data.regFee,
-      payCash: data.payCash,
-      payCheque: data.payCheque,
-      payCard: data.payCard,
-      payGuard: data.payGuard,
-      payEFT: data.payEFT,
-      regNotes: data.regNotes,
+      regCategoryContext: data.regCategoryContext,
+      regCategoryName: data.regCategoryName,
+      regCategoryPrice: data.regCategoryPrice,
+      regCategoryNotes: data.regCategoryNotes,
       createdAt: new Date().getTime()
     }
   };
