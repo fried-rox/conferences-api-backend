@@ -8,7 +8,7 @@ export async function main(event, context, callback) {
   const params = {
     TableName: "reg_contexts",
     Item: {
-      regContextId: uuid.v1(),
+      what : uuid.v1(),
       conferenceId: data.conferenceId, //might need to change this label
       regTypeFullName: data.regTypeFullName,
       regTypeAbbrName: data.regTypeAbbrName,
