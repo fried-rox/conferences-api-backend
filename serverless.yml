@@ -1,4 +1,4 @@
-service: target-conferences-api
+service: conferences-api
 
 # Use serverless-webpack plugin to transpile ES6/ES7
 plugins:

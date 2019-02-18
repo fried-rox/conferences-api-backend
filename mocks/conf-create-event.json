@@ -1,8 +1,0 @@
-{
-  "body": "{\"confTitle\":\"Zika Virus Conference August 2018\",\"confAbbr\":\"Zika\",\"projectManager\":\"Roxan Friedland\",\"accountClient\":\"Mary Levin\",\"confVenue\":\"Tel Aviv\",\"confGraphic\":\"mosquito.jpg\",\"confStartDate\":\"12/12/12\",\"confEndDate\":\"15/12/12\",\"regAccess\":\"Yes\",\"regEarlyStart\":\"04/05/12\",\"regNormalStart\":\"08/06/12\",\"regNormalEnd\":\"09/08/12\",\"confLanguage\":\"English\",\"confCurrency\":\"US Dollar\",\"confExRate\":\"0.45\",\"notes\":\"International\"}",
-  "requestContext": {
-    "identity": {
-      "cognitoIdentityId": "USER-SUB-1234"
-    }
-  }
-}
