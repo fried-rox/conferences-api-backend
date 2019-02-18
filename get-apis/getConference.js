@@ -4,9 +4,6 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context, callback) {
   const params = {
     TableName: "t_conferences",
-    // 'Key' defines the partition key and sort key of the item to be retrieved
-    // - 'userId': Identity Pool identity id of the authenticated user
-    // - 'noteId': path parameter
     Key: {
       conferenceId: event.pathParameters.id,
     }
@@ -24,5 +21,3 @@ export async function main(event, context, callback) {
     callback(null, failure({ status: false }));
   }
 }
-
-      // conferenceId: event.pathParameters.id

@@ -9,7 +9,7 @@ export async function main(event, context, callback) {
     TableName: "reg_contexts",
     Item: {
       what : uuid.v1(),
-      conferenceId: data.conferenceId, //might need to change this label
+      conferenceId: data.conferenceId,
       regTypeFullName: data.regTypeFullName,
       regTypeAbbrName: data.regTypeAbbrName,
       regTypeCurrency: data.regTypeCurrency,

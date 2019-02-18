@@ -3,11 +3,7 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context, callback) {
   const params = {
-    TableName: "reg_categories",
-    // KeyConditionExpression: "regCategoryId = :regCategoryId",
-    // ExpressionAttributeValues: {
-    //   ":regCategoryId": event.pathParameters.id
-    // }
+    TableName: "t_conferences",
   };
 
   try {
